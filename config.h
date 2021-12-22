@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 50;        /* gaps between windows */
+static const unsigned int gappx     = 29;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -67,7 +67,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
 static const char *menucmd[]  = { "rofi", "-show", NULL };
-static const char *termcmd[]  = { "konsole", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 /* volume */
 static const char *upvol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+2%",     NULL };
 static const char *downvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-2%",     NULL };
@@ -129,8 +129,8 @@ static Key keys[] = {
   { 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = upbright   } },
   { 0,                            XF86XK_MonBrightnessDown,  spawn,          {.v = downbright } },
   /* screenshot */
-  { 0,                            XK_Print,                  spawn,          SHCMD("maim -su | xclip -sel clip -t image/png") },
-  { ShiftMask,                    XK_Print,                  spawn,          SHCMD("maim -u | xclip -sel clip -t image/png")  },
+  { 0,                            XK_Print,                  spawn,          SHCMD("scrot ~/Pictures/screenshot.png") },
+  { ShiftMask,                    XK_Print,                  spawn,          SHCMD("scrot ~/Pictures/screenshot.png")  },
   /* sticky */
   { MODKEY,                       XK_s,                      togglesticky,   {0} },
   /* quit */
